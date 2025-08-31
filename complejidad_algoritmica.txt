@@ -1,0 +1,83 @@
+import time
+import random
+
+# -----------------------------
+# EJEMPLO DE COMPLEJIDAD
+# -----------------------------
+
+# Creamos una lista grande de números ordenados
+lista = list(range(1, 1_000_000_000))
+
+# Número objetivo
+objetivo = random.choice(lista)
+
+# -----------------------------
+# BÚSQUEDA LINEAL - O(n) 
+# -----------------------------
+def busqueda_lineal(lista, objetivo):
+    """Busca el número recorriendo todos los elementos."""
+    for i in range(len(lista)):
+        if lista[i] == objetivo:
+            return i  # Devuelve la posición
+    return -1  # Si no lo encuentra devolvemos -1
+
+# -----------------------------
+# BÚSQUEDA BINARIA - O(log n)
+# -----------------------------
+def busqueda_binaria(lista, objetivo):
+    """Busca el número dividiendo la lista a la mitad en cada paso."""
+    izquierda, derecha = 0, len(lista) - 1
+    
+    while izquierda <= derecha:
+        medio = (izquierda + derecha) // 2
+        if lista[medio] == objetivo:
+            return medio
+        elif lista[medio] < objetivo:
+            izquierda = medio + 1
+        else:
+            derecha = medio - 1
+    return -1
+
+# -----------------------------
+# COMPARACIÓN DE TIEMPOS
+# -----------------------------
+inicio = time.time()
+busqueda_lineal(lista, objetivo)
+fin = time.time()
+print(f"El algoritmo de búsqueda lineal tardó: {fin - inicio:.10f} segundos")
+
+inicio = time.time()
+busqueda_binaria(lista, objetivo)
+fin = time.time()
+print(f"El algoritmo de búsqueda binaria tardó: {fin - inicio:.10f} segundos")
+
+#Con mil millones estos fueron los resultados
+#C:\Nelson\Programacion y Estructura de Datos> python .\complejidad_algoritmica.py
+#El algoritmo de búsqueda lineal tardó: 119.6932590008 segundos
+#El algoritmo de búsqueda binaria tardó: 0.0164048672 segundos
+
+
+# Historico de subir a github
+# PS C:\Nelson\Programacion y Estructura de Datos> git init
+# Reinitialized existing Git repository in C:/Nelson/Programacion y Estructura de Datos/.git/
+# Reinitialized existing Git repository in C:/Nelson/Programacion y Estructura de Datos/.git/
+# PS C:\Nelson\Programacion y Estructura de Datos> giT add .\complejidad_algoritmica.py
+# PS C:\Nelson\Programacion y Estructura de Datos> git commit -m "Commit complejidadalgoritmicat"
+# [main b900a0d] Commit complejidadalgoritmicat
+#  1 file changed, 52 insertions(+)
+#  create mode 100644 complejidad_algoritmica.py
+# PS C:\Nelson\Programacion y Estructura de Datos> git remote add origin https://github.com/jnelsonmenjivarg/ProgEstrucDatosNelsonMenjivar.git
+# error: remote origin already exists.             git push -u origin main
+# Enumerating objects: 4, done.structura de Datos>
+# Counting objects: 100% (4/4), done.
+# Delta compression using up to 20 threads
+# Compressing objects: 100% (3/3), done.
+# Writing objects: 100% (3/3), 894 bytes | 894.00 KiB/s, done.
+# Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+# To https://github.com/jnelsonmenjivarg/ProgEstrucDatosNelsonMenjivar.git
+#    c4e1c5b..b900a0d  main -> main
+# branch 'main' set up to track 'origin/main'.
+# PS C:\Nelson\Programacion y Estructura de Datos> git push -f origin main
+# Everything up-to-date
+# PS C:\Nelson\Programacion y Estructura de Datos>
+
