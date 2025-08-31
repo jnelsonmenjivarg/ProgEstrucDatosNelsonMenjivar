@@ -81,3 +81,36 @@ print(f"El algoritmo de búsqueda binaria tardó: {fin - inicio:.10f} segundos")
 # Everything up-to-date
 # PS C:\Nelson\Programacion y Estructura de Datos>
 
+#Respuestas a preguntas
+#P1. ¿Porqué el algoritmo de búsqueda binaria tiene una complejidad temporal más eficiente en 
+#comparación con la búsqueda lineal?
+
+#R1./La búsqueda binaria es más eficiente que la búsqueda lineal porque reduce drásticamente el número de comparaciones necesarias para encontrar un elemento. Esto se debe a que la búsqueda binaria descarta la mitad del conjunto de datos en cada paso, mientras que la búsqueda lineal revisa cada elemento uno por uno.
+#La búsqueda lineal es un enfoque simple: comienza en el primer elemento de una lista y revisa cada uno de ellos en orden hasta que encuentra el elemento deseado o llega al final de la lista.
+Peor escenario: Si el elemento que buscas está al final de la lista (o no está en ella), la búsqueda lineal tiene que revisar todos los elementos. Para una lista de n elementos, esto significa que realizará n comparaciones.
+Complejidad temporal: Se expresa como O(n), lo que significa que el tiempo que tarda aumenta linealmente con el tamaño de la lista.
+#La búsqueda binaria es más sofisticada y requiere que la lista esté ordenada.
+
+#P2. ¿Qué condiciones debe tener la lista para que el algoritmo de búsqueda binaria haga su trabajo?
+#R2. Para que el algoritmo de búsqueda binaria funcione correctamente y de manera eficiente, la lista o arreglo de 
+#datos debe cumplir una condición fundamental e ineludible:
+#La lista debe estar ordenada.
+#Esta es la única condición estricta y absolutamente necesaria.
+
+#P3: Si el número objetivo no se encuentra en la lista, ¿cómo se comportan ambos algoritmos en 
+#cuanto a la cantidad de comparaciones realizadas y cuál resulta más costoso en términos de rendimiento?
+
+#R3. Búsqueda secuencial (lineal):
+#Recorre la lista elemento por elemento hasta encontrar el número objetivo o llegar al final.
+#Si el número no está en la lista, siempre recorrerá todos los elementos.
+#Comparaciones realizadas: En el peor caso (cuando no está) → n comparaciones (donde n es el tamaño de la lista).
+
+#Búsqueda binaria:
+#Solo funciona en listas ordenadas.
+#Divide la lista a la mitad en cada paso, descartando la mitad que no contiene el objetivo.
+#Si el número no está en la lista, sigue dividiendo hasta que no queden elementos por revisar.
+#Comparaciones realizadas: En el peor caso (cuando no está) → alrededor de log₂(n) comparaciones.
+
+Comparación en rendimiento cuando el número no está:
+Lineal: hace n comparaciones.
+Binaria: hace alrededor de log₂(n) comparaciones.
