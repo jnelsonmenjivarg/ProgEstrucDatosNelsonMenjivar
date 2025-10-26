@@ -1,0 +1,43 @@
+class Pila:
+    def __init__(self):
+        self.items = []
+
+    def agregar(self, item):
+        # Agrega un item a la parte superior de la pila.
+        self.items.append(item)
+
+    def eliminar(self):
+        # Remueve y devuelve el elemento en la parte superior de la pila.
+        if not self.vacia():
+            return self.items.pop()
+        else:
+            raise IndexError("Salir de una pila vacía")
+
+    def ver(self):
+        # Retorna el elemento en la parte superior de la pila sin eliminarlo.
+        if not self.vacia():
+            return self.items[-1]
+        else:
+            raise IndexError("Ver desde una pila vacía")
+
+    def vacia(self):
+        # Revisar si la pila está vacía.
+        return len(self.items) == 0
+
+    def tamaño(self):
+        # Devuelve el número de elementos en la pila.
+        return len(self.items)
+
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    print("Inicio Ejercicio de Nelson Menjívar")
+    pila = Pila()
+    pila.agregar(1)
+    pila.agregar(2)
+    pila.agregar(3)
+    print("Último de la pila :", pila.ver())  # 3
+    print("Tamaño de la pila:", pila.tamaño())     # 3
+    print("Elemento eliminado:", pila.eliminar())  # 3
+    print("Tamaño de la pila después de eliminar:", pila.tamaño())  # 2
+    print("Fin Ejercicio de Nelson Menjívar")
